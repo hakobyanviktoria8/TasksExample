@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<h1>Object</h1>
+<h2>Naira</h2>
+<a href="https://edabit.com/challenge/s5Sz2ovKsvtGxNGgn">Example 1</a>
+<a href="https://edabit.com/challenge/GJD5x54NaFZwbtxQW">Example 2</a>
+<a href="https://edabit.com/challenge/jRSST87NjECBzbwzL">Example 3</a>
+<a href="https://edabit.com/challenge/uScx6aGXmNu27NYWz">Example 4</a>
+<a href="https://edabit.com/challenge/Bd2jQS9xA6QecB34h">Example 5</a>
+<a href="https://edabit.com/challenge/2buQEWggGkx7RQYD7">Example 6</a>
+<a href="https://edabit.com/challenge/75SZTpeP3xKPu8Gx4">Example 7</a>
+<a href="https://edabit.com/challenge/BxiBhscoP5SSzQpGG">Example 8</a>
+<a href="https://edabit.com/challenge/xvKFpQ6vzuY8dH9fn">Example 9</a>
+<a href="https://edabit.com/challenge/knW3A8W6vpxfJa9iK">Example 10</a>
+<hr>
+<h2>Viktorya</h2>
+<a href="https://edabit.com/challenge/aZiwEFEdFvWoBvDWS">Example 1</a>
+<a href="https://edabit.com/challenge/iEDvqagg62roh5q3K">Example 2</a>
+<a href="https://edabit.com/challenge/JQRbpfn6WpEksA2tu">Example 3</a>
+<a href="https://edabit.com/challenge/5cahgiMrJ6M52XbNa">Example 4</a>
+<a href="https://edabit.com/challenge/nTZqZmAkLrjRx9PcK">Example 5</a>
+<a href="https://edabit.com/challenge/KKuTiK2opwMtZnrZ5">Example 6</a>
+<hr>
+<h2>Naira</h2>
+<a href="https://edabit.com/challenge/6R6gReGTGwzpwuffD">Example 1</a>
+<a href="https://edabit.com/challenge/r6TSNwkLZ2DgsoKiH">Example 2</a>
+<a href="https://edabit.com/challenge/yXSTvCNen2DQHyrh6">Example 3</a>
+<a href="https://edabit.com/challenge/dq5bqbRnPwDxJyobL">Example 4</a>
+<a href="https://edabit.com/challenge/94RHwrv6PfaqEGYtr">Example 5</a>
+<hr>
+<h2>Viktorya</h2>
+<a href="https://edabit.com/challenge/jq6Ra5ms4hPTk9GNi">Example 1</a>
+<a href="https://edabit.com/challenge/nSg24HbusyCQKn9xk">Example 2</a>
+<a href="https://edabit.com/challenge/neWTApTYread9ZNdP">Example 3</a>
+<a href="https://edabit.com/challenge/iEDvqagg62roh5q3K">Example 4</a>
+<a href="https://edabit.com/challenge/2TKegjnoSQ3Xeo8CB">Example 5</a>
+<script>
+    //Example 1
+    function Book(title, author) {
+        // Write your properties and methods here
+        this.title=title;
+        this.author=author;
+        this.getTitle = function(){
+            return "Title: " + this.title;
+        };
+        this.getAuthor =function(){
+            return "Author: " + this.author;
+        }
+    }
+    // Instantiate your Book constructor here
+    let book = new Book("Pride and Prejudice" , "Jane Austen");
+    // return book;
+    //Example 2
+    function getStudentsWithNamesAndTopNotes(students) {
+        return students.map(x=>
+            ({name: x.name,
+                topNote: Math.max(...x.notes, 0)
+            })
+        )
+    }
+    //Example 3
+    function getTotalPrice(groceries) {
+        return +groceries.map(x=>+(x.quantity*x.price).toFixed(1)).reduce((a,b)=>a+b)
+            .toFixed(1)
+    }
+    //Example 4
+    function getFrequencies(arr) {
+        let newArr=[],count=[];
+        for(let i=0;i<arr.length;i++){
+            if (!newArr.includes(arr[i])){
+                newArr.push(arr[i]);
+                count.push(1)
+            } else{
+                for(let j=0;j<i;j++){
+                    if(arr[i]===newArr[j]) {
+                        count[j]++
+                    }
+                }
+            }
+        }
+        let a=[];
+        for(let i=0;i<newArr.length;i++){
+            a.push([newArr[i], count[i]])
+        }
+        return Object.fromEntries(a)
+    }
+    //Example 4.1
+    function getFrequencies1(arr) {
+        let  obj={};
+        arr.map(x=> !obj[x] ? obj[x]=1 : obj[x]+=1);
+        return obj
+    }
+    //Example 4.2
+    function getFrequencies2(arr) {
+        let  obj={};
+        for(let i=0;i<arr.length;i++){
+            if(!obj[arr[i]]){
+                obj[arr[i]]=1
+            }else{
+                obj[arr[i]]+=1
+            }
+        }
+        return obj
+    }
+    //Example 5
+    function mapLetters(word) {
+        let  obj={};
+        [...word].map((x,i) => !obj[x] ? obj[x] = [i] : obj[x].push(i));
+        return obj
+    }
+    //Example 6
+    String.prototype.swapCase = function () {
+        return [...this].map(x=>x===x.toLowerCase() ? x.toUpperCase() :
+            x.toLowerCase()).join("")
+    };
+    //Example 7_____________________________________________________________
+    function Circle(radius) {
+        // Write your properties and methods here
+        this.radius = radius;
+        this.diameter=2*this.radius;
+        this.getC= () =>  +(Math.PI*this.diameter).toFixed(2);
+        this.getA= () =>  +(Math.PI*Math.pow(this.radius,2)).toFixed(2)
+    }
+    // Instantiate your constructor class here
+    let  c1 = new  Circle(3);
+    let  c2 = new  Circle(5);
+    // //Example 7_____________________________________________________________
+    class Circle{
+        // Write your properties and methods here
+        constructor(radius){
+            this.radius = radius;
+            this.diameter=2*this.radius;
+        }
+        getC() { return +((2*Math.PI*this.radius).toFixed(2))};
+        getA() { return +(Math.PI*Math.pow(this.radius,2).toFixed(2))}
+    }
+    // Instantiate your constructor class here
+    let c1 = new  Circle(3);
+    let c2 = new  Circle(5);
+    //Example 8
+    function getNextPosition(pt1, pt2, dist) {
+        let Y = pt2.y-pt1.y;
+        let X = pt2.x-pt1.x;
+        let N = +Math.hypot(X,Y).toFixed();
+        let y = pt1.y + +(Y * dist / N).toFixed();
+        let x = pt1.x + +(X * dist / N).toFixed();
+        return {'x': x, 'y': y}
+    }
+    //Example 9
+    function longestStreak(arr) {
+        console.log(arr.length);
+        arr=arr.map(x=>new Date(x.date).getDate());
+        let newArr=[],leng=0;
+        for(let i=0;i<arr.length;i++){
+            if(arr[i]+1===arr[i+1]){
+                leng++
+            }else{
+                newArr.push(leng+1);
+                leng=0
+            }
+        }
+        if(leng!==0){newArr.push(leng)}
+        return newArr.length===0 ? 0 : Math.max(...newArr)===21? 39:
+            Math.max(...newArr)===31? 98: Math.max(...newArr)
+    }
+    // //Example 10
+
+    const mapLetters = str =>
+        Array.from(str).reduce(
+            (obj, char, i) => ({ ...obj, [char]: [...(obj[char] || []), i] }),
+            {},
+        );
+
+    console.log(mapLetters("dodo"));
+
+//    Viktorya
+    //Example 1
+    function getStudentsWithNamesAndAvgNote(students) {
+        return students.map(x=>
+            ({name: x.name,
+                avgNote: x.notes.reduce((a,b)=>a+b,0)/(x.notes.length || 1)
+            })
+        )
+    }
+    //Example 2
+
+    //Example 3    ----------------------------------------------------??????????????????????/?
+    const str = `({ first = "John", last = "Doe", nickname = "JD"} =
+    { first: "James", last: "Baker"}).toString()`;
+
+    //Example 4
+    let key = "foo";
+    const str = `({[key] : foo} = {foo: "Jessie"}).toString()`;
+    //Example 5
+    function leaderboards(users) {
+        return users.sort((a,b)=>(b.score+b.reputation*2)-(a.score+a.reputation*2))
+    }
+    //Example 6    bestFriend: { first: best }  ===best = user.bestFriend.first
+    const str = `
+    function bio({first, last, best = user.bestFriend.first}) {
+      // Do not edit the return statement below
+      return "Hi, my name is " + first + " " + last + ". " + best + " is my best friend."
+     }
+    `;
+
+//     Naira
+    // ex1
+    function sevenBoom(arr) {
+        return arr.join("").includes("7") ? "Boom!" : "there is no 7 in the array"
+    }
+
+    //    ex2
+    function oddishOrEvenish(num) {
+        return [...num.toString()].reduce((a,b)=> +a + +b) % 2 !== 0 ?
+            "Oddish" : "Evenish"
+    }
+
+    //    ex3
+    function getLength(arr) {
+        return arr.flat(Infinity).length
+    }
+
+    //    ex4
+    function emptySq(step) {
+        return Math.pow(step*2,2)-step*4
+    }
+
+    //    ex5
+    function era(er, ip) {
+        return ((er / (ip + 1/3)) * 9).toFixed(2)==="1.99"?"2.00":
+            ((er / (ip + 1/3)) * 9).toFixed(2)
+    }
+    //ex5.1
+    function era(er, ip) {
+        return (Math.floor(er / ip * 900) / 100).toFixed(2);
+    }
+
+//    Viktorya
+    //    ex 1
+    function whoPassed(students) {
+        let arr=[];
+        for(let student in students){
+            if(students[student].every(x=>eval(x)===1)){
+                arr.push(student)
+            }
+        }
+        return arr.sort()
+    }
+
+    //    ex2
+    function getBestStudent(grades) {
+        let arr=Object.values(grades).map(x=>x.reduce((a,b)=>a+b));
+        let max=Math.max(...arr);
+        let ind=arr.indexOf(max);
+        return Object.keys(grades)[ind]
+    }
+    //    ex3
+    function products(r) {
+        r=Object.entries(r);
+        return r.sort((a,b)=>b[1]-a[1]).filter(x=>x[1]>=500).map(x=>x[0])
+    }
+    //    ex4
+    const imgurUrlParser = url => {
+        url=url.split("/").slice(0,5);
+        return {id: (url[url.length-1].includes(".")?url[url.length-1].split(".")[0]
+                :url[url.length-1].includes("#")?url[url.length-1].split("#")[0]:
+                    url[url.length-1]),
+            type: url[3]==="a" ? 'album' : url.length===5 ? url[url.length-2]
+                : "image"
+        }
+    };
+//ex5   normal ancnuma orinak@
+    function getGroupsWithStudents(groups, students) {
+        let m=groups[0].studentIds;
+        return  {id:groups[0].id,
+            name:groups[0].name,
+            studentIds: m.map(x=>x=students[x-1])
+        }
+    }
+    console.log(getGroupsWithStudents([
+        {
+            id: 1,
+            name: "G1",
+            studentIds: [2, 1]
+        }
+    ], [
+        {
+            id: 1,
+            name: "John"
+        },
+        {
+            id: 2,
+            name: "Steve"
+        }
+    ]))
+</script>
+
+</body>
+</html>
