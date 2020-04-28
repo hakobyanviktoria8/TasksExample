@@ -40,6 +40,8 @@
 <a href="https://edabit.com/challenge/neWTApTYread9ZNdP">Example 3</a>
 <a href="https://edabit.com/challenge/iEDvqagg62roh5q3K">Example 4</a>
 <a href="https://edabit.com/challenge/2TKegjnoSQ3Xeo8CB">Example 5</a>
+<a href="https://edabit.com/challenge/8a2J9T4FM5fgSwn4w">Example 6</a>
+
 <script>
     //Example 1
     function Book(title, author) {
@@ -298,7 +300,18 @@
             id: 2,
             name: "Steve"
         }
-    ]))
+    ]));
+
+    //ex 6
+    function sumMissingNumbers(arr) {
+        let newArr=[];
+        for(let i=Math.min(...arr); i< Math.max(...arr);i++){
+            if (!arr.includes(i)) {
+                newArr.push(i)
+            }
+        }
+        return newArr.reduce((a,b)=>a+b,0)
+    }
 </script>
 
 </body>
